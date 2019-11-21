@@ -1,7 +1,8 @@
-{% extends 'accounts/base.html' %}
+{% extends 'base.html' %}
 {% block body %}
 <form action='' method='POST'>
     {% csrf_token %}
     {{ form.as_p }}
+    
     <button type='submit'>회원가입</button>
 {% endblock %}

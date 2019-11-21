@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div>
+        제목 : {{movie.title}}<hr>
+        관객수 : {{movie.audience}}<hr>
+        url : {{movie.poster_url}}<hr>
+        요약 : {{movie.description}}<hr>
+        장르 : {{movie.genre.name}}<hr>
+    </div>
+
+{% if user.is_authenticated %}
+<form action="{% url 'movies:like_movie' movie.pk %}" method="POST">
+  {% csrf_token %}
+  {% if user in movie.like_users.all %}
+  <input type="submit" value="좋아요 취소">
+  {% else %}
+  <input type="submit" value="좋아요">
+  {% endif %}
+</form>
+{% endif %}
+
+<p>
+{{ movie.like_users.all.count }} 명이 좋아합니다.
+</p>
+
+{% for review in movie.review_set.all %}
+    <p>
+        <hr>작성자: {{review.user}} <br> 점수 : {{review.score}}<br> 내용 :{{review.content}}<br>
+    </p>
+    <form action='reviews/{{review.pk}}/delete' method='POST'>
+        {% csrf_token %}
+        <input type='submit' value='삭제'>
+        </form>
+{% endfor %}
+
+<form action="{% url 'movies:review' movie.pk %}" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type='submit' value='등록'>
+</form>
+{% endblock %}

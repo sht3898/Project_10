@@ -4,4 +4,4 @@ from django.conf import settings
 # Create your models here.
 
 class User(AbstractUser):
-    pass
+    followers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='followings', blank=True)

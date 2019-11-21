@@ -6,10 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>
-  <a href="{% url 'accounts:signup' %}">회원가입</a><br>
-  <a href="{% url 'accounts:login' %}">로그인 </a><br>
+<body>  
+  <a href="{% url 'movies:index' %}">home</a>
+  <a href="{% url 'accounts:index' %}">유저목록</a>
+    {% if user.is_active %}
+  
   <a href="{% url 'accounts:logout' %}">로그아웃 </a><hr>
+  {% else %}
+  <a href="{% url 'accounts:signup' %}">회원가입</a>
+  <a href="{% url 'accounts:login' %}">로그인 </a><br>
+  <hr>
+  {% endif %}
   {% block body %}
   {% endblock %}
 
