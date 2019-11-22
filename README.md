@@ -451,18 +451,19 @@
 
 index
 
-![image-20191122100142626](.\images\pjt1.png)
+![image-20191122100142626](./images/pjt1.png)
 
 detail
 
-![image-20191122100314058](.\images\pjt2.png)
+![image-20191122100314058](./images/pjt2.png)
 
 좋아요
 
-![image-20191122100351611](.\images\pjt3.png)
+![image-20191122100351611](./images/pjt3.png)
 
 
 
 느낀 점
 
 협업을 통해 혼자 했을때 힘들었던 부분을 서로가 보완해줄 수 있어서 효율적이었던 것 같습니다.
+
